@@ -1,0 +1,21 @@
+Windows フォーム アプリケーションでイベントが発生する順序は、各イベントを順番に処理する必要がある開発者にとって重要な問題です。 
+フォームの構成要素を再描画するときなど、イベント処理に細心の注意が必要な状況では、実行時におけるイベントの正確な発生順序に
+気を配る必要があります。 ここでは、アプリケーションとコントロールの有効期間におけるいくつかの重要な段階での、イベントの順序について
+詳しく説明します。 
+ 
+Windows フォーム アプリケーションが起動すると、メイン フォームのスタートアップ イベントが次の順序で発生します。
+　・Control.HandleCreated
+　・Control.BindingContextChanged
+　・Form.Load
+　・Control.VisibleChanged
+　・Form.Activated
+　・Form.Shown
+
+アプリケーションを閉じると、メイン フォームのシャットダウン イベントが次の順序で発生します。
+　・Form.Closing
+　・Form.FormClosing
+　・Form.Closed
+　・Form.FormClosed
+　・Form.Deactivate
+ 
+Application クラスの ApplicationExit イベントは、メイン フォームのシャットダウン イベントの後に発生します。
