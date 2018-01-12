@@ -1,0 +1,4 @@
+１．選択した行にスクロールさせる方法
+　dgItems.FirstDisplayedScrollingRowIndex = selectedIndex; --選択した行番号
+　dgItems.Rows[selectedIndex].Selected = true;
+　dgItems.Rows[selectedIndex].Cells[0].Selected = true;      
