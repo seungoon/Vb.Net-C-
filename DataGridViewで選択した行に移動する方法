@@ -1,4 +1,5 @@
 １．選択した行にスクロールさせる方法
-　dgItems.FirstDisplayedScrollingRowIndex = selectedIndex; --選択した行番号
-　dgItems.Rows[selectedIndex].Selected = true;
-　dgItems.Rows[selectedIndex].Cells[0].Selected = true;      
+　dataGridView1.ClearSelection(); --選択した行を全部クリアする
+　dataGridView1.FirstDisplayedScrollingRowIndex = selectedIndex; --選択した行番号
+　dataGridView1.Rows[selectedIndex].Selected = true;
+　dataGridView1.Rows[selectedIndex].Cells[0].Selected = true;      
