@@ -1,0 +1,8 @@
+function onTextBoxSampleBlur()
+{
+    // ここに JavaScript で実施したい処理を記述
+    // ... [省略]
+
+    // ポストバックを発生させる
+    Sys.WebForms.PageRequestManager.getInstance()._doPostBack('UpdatePanelSample', '');
+}

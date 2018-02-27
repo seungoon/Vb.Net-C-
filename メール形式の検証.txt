@@ -1,0 +1,29 @@
+①VB→メール形式の検証
+Imports System.Text.RegularExpressions
+
+Module RegexUtilities
+   Function IsValidEmail(strIn As String) As Boolean
+       ' Return true if strIn is in valid e-mail format.
+       Return Regex.IsMatch(strIn, _
+              "^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + _
+              "(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$")
+   End Function
+End Module
+
+②C#→メール形式の検証
+using System;
+using System.Text.RegularExpressions;
+
+public class RegexUtilities
+{
+   public static bool IsValidEmail(string strIn)
+   {
+       // Return true if strIn is in valid e-mail format.
+       return Regex.IsMatch(strIn, 
+              @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + 
+              @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$"); 
+   }
+}
+
+https://msdn.microsoft.com/ja-jp/library/system.net.mail.mailaddress(v=vs.100).aspx
+
