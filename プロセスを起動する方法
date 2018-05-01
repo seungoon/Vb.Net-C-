@@ -1,0 +1,23 @@
+'コマンドライン引数を配列で取得する（パラメータはIndex番号１からスタートする）
+Dim cmds As String() = System.Environment.GetCommandLineArgs()
+
+'プロセスが終了後、戻り値を設定する
+Environment.Exit(1)
+
+
+※呼び出し側
+Dim startInfo As New ProcessStartInfo
+With startInfo
+    .FileName = "XXX.exe"
+    .Arguments = strPrintFilePath
+    .UseShellExecute = True
+    .CreateNoWindow = True
+    .WindowStyle = ProcessWindowStyle.Hidden  ’コマンドプロンプトを非表示
+End With
+
+process = Process.Start(startInfo)
+process.PriorityClass = ProcessPriorityClass.Normal
+process.WaitForExit()
+Dim printResultCode As Integer = process.ExitCode   '戻り値を取得する
+process.Close()
+process.Dispose()
